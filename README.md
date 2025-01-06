@@ -84,8 +84,7 @@ Prototype and build IoT systems without setting up servers or developing web sof
 ![image](https://github.com/user-attachments/assets/5beaf86c-0d5d-4b99-9c22-bb0351f487ab)
 
 # PROGRAM:
-
-
+~~~
 #include <WiFi.h>
 #include "ThingSpeak.h" // always include thingspeak header file after other header files and custom macros
 #define Soil_Moisture 34
@@ -149,6 +148,7 @@ void loop()
   
    delay(5000); // Wait 20 seconds to update the channel again
 }
+~~~
 
 
 
@@ -157,6 +157,8 @@ void loop()
 ![cd](https://github.com/user-attachments/assets/e5159b39-009f-4418-b6ec-86442d23a8dc)
 
 # OUTPUT:
+![output](https://github.com/user-attachments/assets/1a90284c-3299-4fff-8784-cd46770ca69a)
+
 # RESULT:
 Thus the soil moisture values are updated in the Thing speak cloud using ESP32 controller.
 
