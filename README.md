@@ -94,9 +94,14 @@ char pass[] = "YOKESH";   // your network password
 int keyIndex = 0;            // your network key Index number (needed only for WEP)
 WiFiClient  client;
 
+
+
+
 unsigned long myChannelNumber = 2750358;
 const int ChannelField = 1; 
 const char * myWriteAPIKey = "CXCO41JPQB6UF95Q";
+
+
 
 const int airValue = 4095;      // Analog value when the sensor is in dry air
 const int waterValue = 0;
@@ -107,6 +112,9 @@ void setup() {
   WiFi.mode(WIFI_STA);   
   ThingSpeak.begin(client);  // Initialize ThingSpeak
 }
+
+
+
 
 void loop()
 {
@@ -123,15 +131,21 @@ void loop()
     Serial.println("\nConnected.");
   }
 
+
+
  /* Soil MoistureSensor */
   int Soil_Value = analogRead(Soil_Moisture);
   percentage = map(Soil_Value, airValue, waterValue, 0, 100);
+
+  
 
   // Ensure the percentage stays in the 0-100 range
   percentage = constrain(percentage, 0, 100);
   Serial.println("Soil moisture percentage");
   Serial.println(percentage);
   ThingSpeak.writeField(myChannelNumber, ChannelField, percentage, myWriteAPIKey);
+
+  
   
    delay(5000); // Wait 20 seconds to update the channel again
 }
